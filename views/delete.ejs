@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Document</title>
+    <style>
+      
+        form button{
+            margin: 5px;
+            background-color: rgb(247, 78, 78);
+        }
+        .link {
+            background-color: purple;
+            color: white;
+            width: 94%;
+            border-radius: 5px;
+            padding: 18px;
+            text-align: center;
+            margin: 5px;
+        }
+        .link a{
+            color: white;
+            /* text-decoration: none; */
+        }
+        form button:hover{
+            background-color: red;
+        }
+      
+       
+    </style>
+</head>
+<body>
+    <form action="/deletebyId" method="post">
+        <h1>Are you sure you would like to delete this employee</h1>
+     
+
+            <a href="/viewAll"> <div class="link">Cancel</div></a>
+        
+
+            <button type="submit">Delete</button>
+
+              
+    </form>
+</body>
+</html>

@@ -1,9 +1,8 @@
 const connection = require("../config/db_config");
 
 
-
 const addNew = (req, res) => {
-  res.render("addNew")
+  res.render("addNew");
 };
 
 
@@ -28,16 +27,16 @@ const addNewpost = (req, res) => {
                     if(err) {
                         req.flash('error', 'Oops! Something went wrong');
                         console.log(err.message);
-                        res.redirect('/addNew');
+                        res.redirect('/viewAll');
                     } 
                     else{
                         req.flash('success', 'New employee added successfully');
-                        res.redirect('/addNew');
+                        res.redirect('/viewAll');
                     }
-                })
-            }    
+                });
+            };    
 
-        })
+        });
 
     
     }else{
@@ -65,9 +64,8 @@ const addNewpost = (req, res) => {
 
         }
     }    
-    // next();
-};
 
+};
 
 
 const viewAll = (req, res) => {
@@ -89,7 +87,7 @@ const edit = (req, res) => {
 
 };
 const update  = (req, res) => {
-    const id = req.params.id;
+    const id = global.id;
     const fname = req.body.firstname;
     const lname = req.body.lastname;
     const salary = req.body.salary;
@@ -97,40 +95,29 @@ const update  = (req, res) => {
     const email = req.body.email;
     
     if(email!=="" && lname!=="" && salary!=="" && description!=="" && fname!==""){
-        const query = `SELECT * FROM employee_table WHERE email = '${email}';`;
-        connection.query(query, (err, data)=>{
-            if(err) throw err.message;
-            if(data.length>0){
-                req.flash('error', 'Email already exists');
-                res.redirect('/addNew');
-            }
+        
+        const query = `UPDATE  employee_table 
+            SET 
+                first_name = "${fname}", 
+                last_name ="${lname}", 
+                salary =    "${salary}", 
+                job_description = "${description}", 
+                email = "${email}", 
+                updated_at = NOW()
+            WHERE employee_id ="${id}";`;  
+
+        
+        connection.query(query, (err)=>{                                                                                   
+            if(err) {
+                req.flash('error', 'Oops! Something went wrong');
+                console.log(err.message);
+                res.redirect('/edit');
+            } 
             else{
-                const query = `UPDATE  employee_table 
-                    SET 
-                        first_name = "${fname}", 
-                        last_name ="${lname}", 
-                        salary =    "${salary}", 
-                        job_description = "${description}", 
-                        email = "${email}", 
-                        updated_at = NOW()
-                    WHERE employee_id ="${id}";`;  
-
-              
-                connection.query(query, (err)=>{                                                                                   
-                    if(err) {
-                        req.flash('error', 'Oops! Something went wrong');
-                        console.log(err.message);
-                        res.redirect('/edit');
-                    } 
-                    else{
-                        req.flash('success', 'Employee updated successfully');
-                        res.redirect('/edit');
-                    }
-                })
-            }    
-
-        })
-
+                req.flash('success', 'Employee updated successfully');
+                res.redirect('/viewAll');
+            };
+        });
     }else{
         if(fname==""){
             req.flash('error' , 'Please enter first name');
@@ -158,12 +145,39 @@ const update  = (req, res) => {
 
     }    
 };
+
+    
+const deleteConfirmation = (req, res) => {
+    res.render("delete");
+    global.id = req.query.id;
+
+};
+const deletebyId = (req,res)=>{
+    const id = global.id;
+    // console.log(id);
+
+    const query = `DELETE FROM employee_table WHERE employee_id = ${id}`;
+    connection.query(query, (err)=>{
+        if(err){
+            req.flash('error', 'Oops! Something went wrong');
+            console.log(err.message);
+
+        }
+        else{
+            req.flash('success', 'Employee deleted successfully');
+            res.redirect('/viewAll');
+        }
+    })
+};
+
 module.exports = {
   viewAll,
   addNew,
   addNewpost,
   edit,
-  update
+  update,
+  deleteConfirmation,
+  deletebyId
 
   
 };

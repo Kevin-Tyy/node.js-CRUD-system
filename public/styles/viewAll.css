@@ -6,6 +6,19 @@
     padding: 5px ;
     background-color: black;
 } 
+.success_msg{
+    color: rgb(7, 87, 14);
+    background-color: rgb(124, 243, 108);
+    width: 60%;
+    min-width: 900px;
+    height: 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin: 50px auto;
+}
+
 .navbar button{
     padding: 15px 30px;
     margin: 5px 10px;
@@ -37,10 +50,10 @@ tr{
     transition: 0.2s;
 }
 tr:nth-child(even){
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(241, 241, 241);
 }
 tr:hover{
-    background-color: rgb(173, 173, 173);
+    background-color: rgb(212, 210, 210);
 }
 
 th{
@@ -80,7 +93,7 @@ h1{
     padding: 7px 20px;
     border: none;
     border-radius: 7px;
-    transition: 0.3s;
+    transition: 0.3s;   
 
 
 }
@@ -104,4 +117,7 @@ h1{
     cursor: pointer;
     transform: translateY(-5px);
 
+}
+a{
+    text-decoration: none;
 }

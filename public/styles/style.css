@@ -126,15 +126,3 @@ form .error_msg{
     padding: 20px;
     text-align: center;
 }
-form .success_msg{
-    color: rgb(7, 87, 14);
-    background-color: rgb(124, 243, 108);
-    width: 93%;
-    height: 15px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-
-
-}
