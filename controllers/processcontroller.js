@@ -154,7 +154,7 @@ const deleteConfirmation = (req, res) => {
 };
 const deletebyId = (req,res)=>{
     const id = global.id;
-    // console.log(id);
+    console.log(id);
 
     const query = `DELETE FROM employee_table WHERE employee_id = ${id}`;
     connection.query(query, (err)=>{
@@ -170,6 +170,7 @@ const deletebyId = (req,res)=>{
     })
 };
 
+
 module.exports = {
   viewAll,
   addNew,
@@ -177,7 +178,7 @@ module.exports = {
   edit,
   update,
   deleteConfirmation,
-  deletebyId
-
+  deletebyId,
+  
   
 };

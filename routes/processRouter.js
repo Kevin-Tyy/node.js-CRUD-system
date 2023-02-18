@@ -9,6 +9,7 @@ route.get('/edit', edit);
 route.post('/update', update);
 route.get('/delete', deleteConfirmation);
 route.post('/deletebyId', deletebyId)
+
 module.exports = route;
 
 

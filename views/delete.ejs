@@ -11,22 +11,38 @@
         form button{
             margin: 5px;
             background-color: rgb(247, 78, 78);
+            border-radius: 50px;
+            box-shadow: 0 0 15px rgb(207, 207, 207);
+            /* width: 200px; */
+            /* transform: translateX(120px); */
         }
         .link {
             background-color: purple;
             color: white;
             width: 94%;
-            border-radius: 5px;
-            padding: 18px;
+            border-radius: 50px;
+            padding: 16px;
             text-align: center;
             margin: 5px;
+            box-shadow: 0 0 5px grey;
+            transition: 0.3s;
+        }
+        .link:hover{
+            transform: translateY(-10px);
         }
         .link a{
             color: white;
             /* text-decoration: none; */
         }
         form button:hover{
-            background-color: red;
+            transform: translateY(-10px);
+            background-color: rgb(240, 73, 73);
+        }
+        .btns{
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 50px;
         }
       
        
@@ -35,13 +51,15 @@
 <body>
     <form action="/deletebyId" method="post">
         <h1>Are you sure you would like to delete this employee</h1>
+        <hr>
      
 
+        <div class="btns">
             <a href="/viewAll"> <div class="link">Cancel</div></a>
         
 
             <button type="submit">Delete</button>
-
+        </div>
               
     </form>
 </body>
