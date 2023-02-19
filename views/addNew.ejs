@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/style.css" />
     <title>Add New</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <a href="/viewAll"><button>View All</button></a>
-        <a href="/addNew"><button>Add new</button></a>
-
-        
+      <a href="/viewAll"><button>View All</button></a>
+      <a href="/addNew"><button>Add new</button></a>
     </div>
     <form action="/addNew" method="post">
-        <h1>Add new employee</h1>
+      <h1>Add new employee</h1>
 
-        <hr>
-       <% if(messages.error) { %>
-        <div class="error_msg"><%= messages.error %></div>
+      <hr />
+      <% if(messages.error) { %>
+      <div class="error_msg"><%= messages.error %></div>
 
-       <% } %>  
-       <% if(messages.success) { %>
-        <div class="success_msg"><%= messages.success %></div>
+      <% } %> <% if(messages.success) { %>
+      <div class="success_msg"><%= messages.success %></div>
 
-       <% } %>  
-        <div class="names">
-            <div class="input_group">  
-                <input type="text" name="firstname" id="firstname" placeholder="..">
-                <label for="firstname">Firstname</label>
-            </div>  
-            <div class="input_group">
-                <input type="text" name="lastname" id="lastname" placeholder="..">
-                <label for="lastname">Lastname</label>
-            </div> 
-
-        </div> 
+      <% } %>
+      <div class="names">
         <div class="input_group">
-            <textarea name="description" id="description" cols="30" rows="10" placeholder=".."></textarea>
-            <label for="description">Job description</label>
-        </div>     
+          <input type="text" name="firstname" id="firstname" placeholder=".." />
+          <label for="firstname">Firstname</label>
+        </div>
+        <div class="input_group">
+          <input type="text" name="lastname" id="lastname" placeholder=".." />
+          <label for="lastname">Lastname</label>
+        </div>
+      </div>
+      <div class="input_group">
+        <textarea
+          name="description"
+          id="description"
+          cols="30"
+          rows="10"
+          placeholder=".."
+        ></textarea>
+        <label for="description">Job description</label>
+      </div>
 
-        <div class="input_group">
-            <input type="text" name="salary" id="salary" placeholder="..">
-            <label for="salary">Salary</label>
-        </div>    
-        
-        <div class="input_group">
-            <input type="email" name="email" id="email" placeholder="..">
-            <label for="email">Email</label>
-        </div>    
-        <button type="submit">Add employee</button>
-        
+      <div class="input_group">
+        <input type="text" name="salary" id="salary" placeholder=".." />
+        <label for="salary">Salary</label>
+      </div>
+
+      <div class="input_group">
+        <input type="email" name="email" id="email" placeholder=".." />
+        <label for="email">Email</label>
+      </div>
+      <button type="submit">Add employee</button>
     </form>
-</body>
+  </body>
 </html>

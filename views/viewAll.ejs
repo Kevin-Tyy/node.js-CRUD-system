@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View All</title>
-    <link rel="stylesheet" href="/styles/viewAll.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/styles/viewAll.css" />
+  </head>
+  <body>
     <div class="navbar">
-        <a href="/viewAll"><button>View All</button></a>
-        <a href="/addNew"><button>Add new</button></a>
-
-        
+      <a href="/viewAll"><button>View All</button></a>
+      <a href="/addNew"><button>Add new</button></a>
     </div>
     <div class="table">
-    <section class="content-header">
+      <section class="content-header">
         <h1>Employee List</h1>
-    </section>
-    
-        <% if(messages.success) { %>
-            <div class="success_msg"><%= messages.success %></div>
+      </section>
 
-        <% } %>  
-                
-            <table>
-                <thead>
-                    <tr>
-                        <th>firstame</th>
-                        <th>lastname</th>
-                        <th>Email</th>
-                        <th>Job description</th>
-                        <th>Salary</th>
-                        <th>Actions</th>
-                    
-                    </tr>
-                </thead>
-                <tbody>
-                <% print.forEach(function(result) { %>
-                    <tr>
-                    <td><%= result.first_name%></td>
-                    <td><%= result.last_name %></td>
-                    <td><%= result.email %></td>
-                    <td><%= result.job_description %></td>
-                    <td><%= result.salary %></td>
-                    <td> <a href="/edit?id=<%= result.employee_id %>"><button class="edit">Edit</button></a>  <a href="/viewbyId?id=<%= result.employee_id %>"><button class="view">View</button></a> <a href="/delete?id=<%= result.employee_id %>"><button class="delete">Delete</button></a> </td>
-                </tr>
-             <% }); %>
+      <% if(messages.success) { %>
+      <div class="success_msg"><%= messages.success %></div>
 
-              
+      <% } %>
 
-                </tbody>
-            </table>
-            
-        </div>
-</body>
+      <table>
+        <thead>
+          <tr>
+            <th>firstame</th>
+            <th>lastname</th>
+            <th>Email</th>
+            <th>Job description</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% print.forEach(function(result) { %>
+          <tr>
+            <td><%= result.first_name%></td>
+            <td><%= result.last_name %></td>
+            <td><%= result.email %></td>
+            <td><%= result.job_description %></td>
+            <td><%= result.salary %></td>
+            <td>
+              <a href="/edit?id=<%= result.employee_id %>"
+                ><button class="edit">Edit</button></a
+              >
+              <a href="/viewbyId?id=<%= result.employee_id %>"
+                ><button class="view">View</button></a
+              >
+              <a href="/delete?id=<%= result.employee_id %>"
+                ><button class="delete">Delete</button></a
+              >
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
